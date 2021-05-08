@@ -25,4 +25,24 @@ export class Practicecomponent implements OnInit {
     back() {
         this.router.navigate(["/homepage"]);
     }
+
+    onTextChanged(searchValue){
+        // console.log(searchValue);
+        // console.log(Boolean(searchValue)); //ถ้าว่างจะให้ค่าเป็น false
+        
+        if(searchValue){
+            this.words = this.DataService.getAllWord()
+            var tempWords = []
+            for (var word of this.words ){
+                
+                if ((word.word.toLowerCase()).includes(searchValue.toLowerCase())){
+                    tempWords[tempWords.length] = word
+                }
+            }
+            this.words = tempWords
+        }else{
+            this.words = this.DataService.getAllWord()
+        }
+        // console.log("BALL".includes("BA"))
+    }
 }

@@ -1,8 +1,10 @@
 <ActionBar> 
     <NavigationButton android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
 </ActionBar>
+
 <ScrollView>
     <StackLayout>
+        <SearchBar hint="Enter search term here ..." #searchValue (textChange)="onTextChanged(searchValue.text)" ></SearchBar> 
         <Button *ngFor="let word of words" text="{{ word.word }}"  (tap)="goDetail(word.word)"></Button>
         <button text="+" [nsRouterLink]="['/addWord']"></button>
     </StackLayout>
