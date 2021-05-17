@@ -31,11 +31,10 @@ export class Practicecomponent implements OnInit {
         // console.log(Boolean(searchValue)); //ถ้าว่างจะให้ค่าเป็น false
         
         if(searchValue){
-            this.words = this.DataService.getAllWord()
             var tempWords = []
-            for (var word of this.words ){
+            for (var word of this.DataService.getAllWord() ){
                 
-                if ((word.word.toLowerCase()).includes(searchValue.toLowerCase())){
+                if ((word.word.toLowerCase()).includes(searchValue.toLowerCase())){ // if ('b' in "ball")
                     tempWords[tempWords.length] = word
                 }
             }
